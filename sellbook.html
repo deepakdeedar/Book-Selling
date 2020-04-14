@@ -1,0 +1,204 @@
+<html lang="en">
+<head>
+  <title>BookTheBook | Sell Book</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Amarante&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=El+Messiri&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" style="color: black;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="home.html"><t style="color: blueviolet; font-size: 40px;font-family: 'Amarante', cursive; margin-left: 50px;">BOOK</t><t style="color: red;font-family: 'Lobster', cursive;
+">TheBook</t><sup><span class="glyphicon glyphicon-copyright-mark"></span></sup></a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="home.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+      <li><a href="book.html">Available Books</a></li>
+      <li><a href="courses.html">Available Courses</a></li>
+      <li class="active"><a href="sellbook.html"><span class="glyphicon glyphicon-piggy-bank"></span> Sell Book</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </div>
+</nav>
+    <br><br><br>
+    <div class="container">
+        <div class="jumbotron">
+            <center>
+                <h3>Sell your Books and Make money</h3>
+                <h5>For any specific details call us at</h5>
+                <h4>0172-1234567, 9518874547, 9466383937</h4>
+                <div style="width: 50px; height: 3px; background-color: red;"></div>
+            </center><br><br>
+                <form id="form" target="_self" onsubmit="return postToGoogle();" action="" autocomplete="off" style="padding-left: 100px; padding-right: 100px;">
+                      <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="entry.1760733308" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="mobile">Mobile</label>
+                        <input type="number" class="form-control" id="mobile" name="entry.1433188602" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="entry.70915487" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="book">Book Name</label>
+                        <input type="text" class="form-control" id="book" name="entry.641772384" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="author">Author</label>
+                        <input type="text" class="form-control" id="author" name="entry.1120289992" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="other">Other Details</label>
+                        <input type="text" class="form-control" id="other" name="entry.1782156299" required>
+                      </div>
+                      
+                        
+                      <div> 
+                          <h5><b>Upload Image</b></h5>
+                        <iframe src="https://script.google.com/macros/s/AKfycbws-6ML1oxy0-sSisNfAlHnk88MuqRHoMhsDV2AaBGt4KpmO_o/exec" width="900" height="190" style="border: 0;"></iframe>
+                        </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" required> Remember me</label>
+                      </div>
+                    
+                      <button id="send" type="submit" class="btn btn-default">Submit</button>
+               </form>
+            
+            <h3 id="success-msg" style="text-align: center !important; margin-top:190px !important; display:none; color:black"> Your Request has been Recorded please refresh for other request.....</h3>
+            
+    
+            
+            
+            
+            
+            <script>
+function postToGoogle() {
+                var field1 = $("#name").val();
+                var field2 = $("#mobile").val();
+                var field3 = $("#email").val();
+                var field4 = $("#book").val();
+                var field5 = $("#author").val();
+                var field6 = $("#other").val();
+ 				
+				if(field1 == ""){
+					alert('Please Fill Your Name');
+					document.getElementById("name").focus();
+					return false;
+				}
+				if(field2 == ""){
+					alert('Please Fill Your Mobile');
+					document.getElementById("mobile").focus();
+					return false;
+				}
+                if(field3 == ""){
+					alert('Please Fill Your Email');
+					document.getElementById("email").focus();
+					return false;
+				}
+                if(field4 == ""){
+					alert('Please Fill Your Book Name');
+					document.getElementById("book").focus();
+					return false;
+				}
+                if(field5 == ""){
+					alert('Please Fill Your Author');
+					document.getElementById("author").focus();
+					return false;
+				}
+                if(field6 == ""){
+					alert('Please Fill Your Other Details');
+					document.getElementById("other").focus();
+					return false;
+				}
+				
+	
+                $.ajax({
+                    url: "https://docs.google.com/forms/d/e/1FAIpQLSeV_4YI9eMuRMN-6i5Rq6Sf8Z-Hr5syy0M3vu4nB6lsfkmdQQ/formResponse?",
+					data: {"entry.1760733308": field1, "entry.1433188602": field2, "entry.70915487": field3, "entry.641772384": field4, "entry.1120289992": field5, "entry.1782156299": field6},
+                    type: "POST",
+                    dataType: "xml",
+                    success: function(d)
+					{
+					},
+					error: function(x, y, z)
+						{
+
+							$('#success-msg').show();
+							$('#form').hide();
+							
+						}
+                });
+				return false;
+            }
+            //https://docs.google.com/spreadsheets/d/1I7XRILDuS0Wnzy37JbtiTgYrd1QoEEOlAHJ0EM2Illk/edit#gid=1885293814
+</script>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        </div>
+    </div>
+    <div class="jumbotron" style="margin-bottom: 0px; background-color: #121212; color: white;">
+        <table style="margin-left: 200px;">
+            <tr>
+                <td>
+                    <h4 style="color: white;"><b>More About Company</b></h4><br>
+                    <h5>
+                        <dl>
+                            <dt>BookTheBook is bookstore for buying used books, second<br> hand books, old books, textbooks in India. BookTheBook also allows<br> users to sell books online.<br></dt><br>
+                            <dd style="margin-left: 280px;">-Deepak Deedar Singla,CEO</dd>
+                        </dl>
+                    </h5>
+                </td>
+                <td style="padding-left: 100px;">
+                    <h4 style="color: white"><b>Keep Connected</b></h4><br>
+                    <h5><a href="#" class="fa fa-facebook" style="color: blue;"></a> &nbsp;&nbsp;Like Us on Facebook</h5>
+                    <h5><a href="#" class="fa fa-twitter"></a> &nbsp;&nbsp;Follow Us on Twitter</h5>
+                    <h5><a href="#" class="fa fa-google" style="color: red;"></a> &nbsp;&nbsp;Add us on Google Plus</h5>
+                    <h5><a href="#" class="fa fa-instagram" style="color: deeppink;"></a> &nbsp;&nbsp;Follow Us on Instagram</h5>
+                    <h5><a href="#" class="fa fa-linkedin" style="color: skyblue;"></a> &nbsp;&nbsp;Like Us on Linkedin</h5>
+                </td>
+                <td style="padding-left: 100px;">
+                    <h4 style="color: white"><b>Contact Information</b></h4><br>
+                    <h5><span class="glyphicon glyphicon-home" style="color: white"></span> &nbsp;&nbsp;BookTheBook</h5>
+                    <h5 style="margin-left: 25px;">Chitkara University</h5>
+                    <h5 style="margin-left: 25px;">Baddi,Himachal Pradesh</h5>
+                    <h5><span class="glyphicon glyphicon-phone" style="color: white"></span> &nbsp;&nbsp;95188-74547</h5>
+                    <h5><span class="glyphicon glyphicon-envelope" style="color: white"></span> &nbsp;&nbsp;BookTheBook@gmail.com</h5>
+                </td>
+            </tr>
+        </table>
+        <h5 style="margin-bottom: 0px;">
+            <span class="glyphicon glyphicon-copyright-mark"></span> 2020 BookTheBook | All Rights Reserved | Designed by <b style="color: white;">Deepak Deedar Singla</b>
+        </h5>
+    </div>
+</body>
+</html>
