@@ -1,0 +1,223 @@
+<html lang="en">
+<head>
+  <title>BookTheBook | Buy Book</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Amarante&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=El+Messiri&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+        $("#sel2").hide();
+        });
+        
+        function lsel1()
+        {
+            var d=document.getElementById("sel1");
+            var d1=document.getElementById("sel2");
+            var dis=d1.options[d.selectedIndex].text;
+            document.getElementById("cost").value=dis;
+        }
+        
+    </script>
+    
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" style="color: black;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="home.html"><t style="color: blueviolet; font-size: 40px;font-family: 'Amarante', cursive; margin-left: 50px;">BOOK</t><t style="color: red;font-family: 'Lobster', cursive;
+">TheBook</t><sup><span class="glyphicon glyphicon-copyright-mark"></span></sup></a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="home.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+      <li class="active"><a href="book.html">Available Books</a></li>
+      <li><a href="courses.html">Available Courses</a></li>
+      <li><a href="sellbook.html"><span class="glyphicon glyphicon-piggy-bank"></span> Sell Book</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </div>
+</nav>
+    <br><br><br>
+    <div class="container">
+        <div class="jumbotron">
+            <center>
+                <h3>Buy Books at Affordable Price</h3>
+                <h5>For any specific details call us at</h5>
+                <h4>0172-1234567, 9518874547, 9466383937</h4>
+                <div style="width: 50px; height: 3px; background-color: red;"></div>
+            </center><br><br>
+                <form id="form" target="_self" onsubmit="return postToGoogle();" action="" autocomplete="off" style="padding-left: 100px; padding-right: 100px;">
+                      <div class="form-group">
+                        <label for="name">Name<sup style="color: red;">*</sup></label>
+                        <input type="text" class="form-control" id="name" name="entry.1782502661" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="mobile">Mobile<sup style="color: red;">*</sup></label>
+                        <input type="number" class="form-control" id="mobile" name="entry.177072887" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Email<sup style="color: red;">*</sup></label>
+                        <input type="email" class="form-control" id="email" name="entry.969197944" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="sel1">Select Book (select one)<sup style="color: red;">*</sup>:</label>
+                          <select class="form-control" id="sel1" onchange="lsel1();" name="entry.1961558656" required>
+                              <option>Select Book</option>
+                              <option disabled>Operating System Principles | By Peter Baer Galvin | BookTheBook</option>
+                              <option disabled>Computer System Architecture | By P. V. S. RAO | BookTheBook</option>
+                              <option>Engineering Drawing | By Basant Agrawal | BookTheBook</option>
+                              <option disabled>Digital Electronics Principles | By Anil K. Maini | BookTheBook</option>
+                              <option disabled>Basic Civil Engineering | By Dr. B.C. Punmia | BookTheBook </option>
+                              <option disabled>Building Materials in Civil Engineering | By Haimei Zhang | BookTheBook</option>
+                              <option disabled>Materials for Construction | By M. Clara Gonçalves | BookTheBook</option>
+                          </select>
+                          <select class="form-control" id="sel2" hidden>
+                              <option>Select Book</option>
+                              <option disabled>Operating System Principles | By Peter Baer Galvin | BookTheBook</option>
+                              <option disabled>Computer System Architecture | By P. V. S. RAO | BookTheBook</option>
+                              <option>299.00INR</option>
+                              <option disabled>Digital Electronics Principles | By Anil K. Maini | BookTheBook</option>
+                              <option disabled>Basic Civil Engineering | By Dr. B.C. Punmia | BookTheBook </option>
+                              <option disabled>Building Materials in Civil Engineering | By Haimei Zhang | BookTheBook</option>
+                              <option disabled>Materials for Construction | By M. Clara Gonçalves | BookTheBook</option>
+                          </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="other">Amount</label>
+                        <input type="text" class="form-control" id="cost" name="entry.1735938194" readonly>
+                      </div>
+                      <div class="form-group">
+                        <label for="other">Delivery Address<sup style="color: red;">*</sup></label>
+                        <input type="text" class="form-control" id="other" name="entry.220510983" required>
+                      </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" required> Remember me<sup style="color: red;">*</sup></label>
+                      </div>
+                    
+                      <button id="send" type="submit" class="btn btn-default">Submit</button>
+               </form>
+            
+            <h3 id="success-msg" style="text-align: center !important; margin-top:190px !important; display:none; color:black"> Your Request has been Recorded please refresh for other request.....</h3>
+            
+    
+            
+            
+            
+            
+            <script>
+function postToGoogle() {
+                var field1 = $("#name").val();
+                var field2 = $("#mobile").val();
+                var field3 = $("#email").val();
+                var field4 = $("#sel1 option:selected").text();
+                var field5 = $("#cost").val();
+                var field6 = $("#other").val();
+ 				
+				if(field1 == ""){
+					alert('Please Fill Your Name');
+					document.getElementById("name").focus();
+					return false;
+				}
+				if(field2 == ""){
+					alert('Please Fill Your Mobile');
+					document.getElementById("mobile").focus();
+					return false;
+				}
+                if(field3 == ""){
+					alert('Please Fill Your Email');
+					document.getElementById("email").focus();
+					return false;
+				}
+                if(field6 == ""){
+					alert('Please Fill Your Other Details');
+					document.getElementById("other").focus();
+					return false;
+				}
+				
+	
+                $.ajax({
+                    url: "https://docs.google.com/forms/d/e/1FAIpQLSc5U0aoG2jieXAf5O4cjE1tf6tF-Qfo7wSzd9bXDFFaRuP76g/formResponse?",
+					data: {"entry.1782502661": field1, "entry.177072887": field2, "entry.969197944": field3, "entry.1961558656": field4, "entry.1735938194": field5, "entry.220510983": field6},
+                    type: "POST",
+                    dataType: "xml",
+                    success: function(d)
+					{
+					},
+					error: function(x, y, z)
+						{
+
+							$('#success-msg').show();
+							$('#form').hide();
+							
+						}
+                });
+				return false;
+            }
+            //https://docs.google.com/spreadsheets/d/1I7XRILDuS0Wnzy37JbtiTgYrd1QoEEOlAHJ0EM2Illk/edit#gid=1885293814
+</script>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        </div>
+    </div>
+    <div class="jumbotron" style="margin-bottom: 0px; background-color: #121212; color: white;">
+        <table style="margin-left: 200px;">
+            <tr>
+                <td>
+                    <h4 style="color: white;"><b>More About Company</b></h4><br>
+                    <h5>
+                        <dl>
+                            <dt>BookTheBook is bookstore for buying used books, second<br> hand books, old books, textbooks in India. BookTheBook also allows<br> users to sell books online.<br></dt><br>
+                            <dd style="margin-left: 280px;">-Deepak Deedar Singla,CEO</dd>
+                        </dl>
+                    </h5>
+                </td>
+                <td style="padding-left: 100px;">
+                    <h4 style="color: white"><b>Keep Connected</b></h4><br>
+                    <h5><a href="#" class="fa fa-facebook" style="color: blue;"></a> &nbsp;&nbsp;Like Us on Facebook</h5>
+                    <h5><a href="#" class="fa fa-twitter"></a> &nbsp;&nbsp;Follow Us on Twitter</h5>
+                    <h5><a href="#" class="fa fa-google" style="color: red;"></a> &nbsp;&nbsp;Add us on Google Plus</h5>
+                    <h5><a href="#" class="fa fa-instagram" style="color: deeppink;"></a> &nbsp;&nbsp;Follow Us on Instagram</h5>
+                    <h5><a href="#" class="fa fa-linkedin" style="color: skyblue;"></a> &nbsp;&nbsp;Like Us on Linkedin</h5>
+                </td>
+                <td style="padding-left: 100px;">
+                    <h4 style="color: white"><b>Contact Information</b></h4><br>
+                    <h5><span class="glyphicon glyphicon-home" style="color: white"></span> &nbsp;&nbsp;BookTheBook</h5>
+                    <h5 style="margin-left: 25px;">Chitkara University</h5>
+                    <h5 style="margin-left: 25px;">Baddi,Himachal Pradesh</h5>
+                    <h5><span class="glyphicon glyphicon-phone" style="color: white"></span> &nbsp;&nbsp;95188-74547</h5>
+                    <h5><span class="glyphicon glyphicon-envelope" style="color: white"></span> &nbsp;&nbsp;BookTheBook@gmail.com</h5>
+                </td>
+            </tr>
+        </table>
+        <h5 style="margin-bottom: 0px;">
+            <span class="glyphicon glyphicon-copyright-mark"></span> 2020 BookTheBook | All Rights Reserved | Designed by <b style="color: white;">Deepak Deedar Singla</b>
+        </h5>
+    </div>
+</body>
+</html>
